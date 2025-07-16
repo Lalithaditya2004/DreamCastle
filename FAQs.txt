@@ -1,0 +1,16 @@
+Why Relational DB?
+
+NoSQL is for data which is semi structured and dynamic, like products in ecommerce where dresses can have sizes but not all other products. Although NoSQL is faster and provides higher performance, since our website takes care of only houses and it is better to use SQL since SQL is used for more complex queries like JOINs and etc which we will use in our website.
+
+why MySQL?
+
+Answered as above and most of the relational DB are similar in nature.
+
+Why not node?
+
+Ideal for high perf, real-time application like data streaming, gaming etc.
+
+Why express?
+
+Useful for building light weight applications and is simpler for rapid development and flexible, easy to manage , mostly used by start up to build MVPs.
+Used for lot of routing and middle ware applications(Rest API)
