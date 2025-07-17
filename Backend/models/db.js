@@ -3,10 +3,10 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const db = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
+  host: 'localhost',
+  user: 'root',
+  password: 'irs@2023',
+  database: 'pgms',
 });
 
 module.exports = db;

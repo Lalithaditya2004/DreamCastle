@@ -1,9 +1,9 @@
 const db = require("../models/db");
 
 exports.createWarden = async (req, res) => {
-  const { name, phone, email, pg_id } = req.body;
+  const { Name , Password , Email , Phno , Salary , Sal_status } = req.body;
   try {
-    await db.query("INSERT INTO warden (name, phone, email, pg_id) VALUES (?, ?, ?, ?)", [name, phone, email, pg_id]);
+    await db.query("INSERT INTO warden (Name , Password , Email , Phno , Salary , Sal_status) VALUES (?, ?, ?, ?, ?, ?)", [ Name , Password , Email , Phno , Salary , Sal_status]);
     res.status(201).json({ message: "Warden added successfully" });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -18,3 +18,5 @@ exports.getWardens = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+ 
