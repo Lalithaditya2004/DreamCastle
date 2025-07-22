@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { createOwner, getOwners } = require("../controllers/ownercontroller.js");
+const { createOwner, getOwners, updateOwner } = require("../controllers/ownercontroller.js");
 
 router.post("/create", createOwner);
-router.get("/view", getOwners);
+router.get("/view/:pgId", getOwners);
+router.put("/update/:userId", updateOwner);  
 
 module.exports = router;

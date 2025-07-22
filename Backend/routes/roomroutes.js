@@ -1,15 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const {
-  createRoom,
-  getRoomsByPG,
-  getRoomsByFloorInPG,
-  getRoomByNumberInPG
-} = require("../controllers/roomcontroller");
+const roomController = require("../controllers/roomcontroller");
 
-router.post("/create", createRoom);
-router.get("/pg/:pgId", getRoomsByPG);
-router.get("/pg/:pgId/floor/:floorNo", getRoomsByFloorInPG);
-router.get("/pg/:pgId/roomno/:roomNo", getRoomByNumberInPG);
+router.post("/create", roomController.createRoom);
+router.get("/pg/:pgId", roomController.getRoomsByPG);
+router.get("/pg/:pgId/floor/:floorNo", roomController.getRoomsByFloorInPG);
+router.get("/pg/:pgId/roomno/:roomNo", roomController.getRoomByNumberInPG);
+
+// New Routes
+router.get("/pg/:pgId/vacancies", roomController.getVacantRooms);
+router.get("/pg/:pgId/floor/:floorNo/cleaning-status", roomController.getCleaningStatus);
 
 module.exports = router;

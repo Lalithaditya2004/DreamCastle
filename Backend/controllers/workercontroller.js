@@ -64,3 +64,52 @@ exports.getWorkersByJob = async (req, res) => {
   }
 };
 
+exports.deleteWorker = async (req, res) => {
+  const { aadharId } = req.params;
+  try {
+    const [result] = await db.query("DELETE FROM worker WHERE AadharId = ?", [aadharId]);
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: "Worker not found" });
+    }
+    res.json({ message: "Worker deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+exports.updateSalaryStatus = async (req, res) => {
+  const { aadharId } = req.params;
+  const { Sal_status } = req.body;
+  try {
+    const [result] = await db.query(
+      "UPDATE worker SET Sal_status = ? WHERE AadharId = ?",
+      [Sal_status, aadharId]
+    );
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: "Worker not found" });
+    }
+    res.json({ message: "Salary status updated" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+exports.updateWorker = async (req, res) => {
+  const { aadharId } = req.params;
+  const { Name, Phno, Salary, Job, ReportsTo } = req.body;
+
+  try {
+    const [result] = await db.query(
+      `UPDATE worker 
+       SET Name = ?, Phno = ?, Salary = ?, Job = ?, ReportsTo = ? 
+       WHERE AadharId = ?`,
+      [Name, Phno, Salary, Job, ReportsTo, aadharId]
+    );
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: "Worker not found" });
+    }
+    res.json({ message: "Worker details updated" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

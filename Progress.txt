@@ -1,1 +1,60 @@
-Completed building DB.
+Guest :
+_Create a guest
+_View guests by pg
+_View guests by pg and room no
+_View guests by pg and floor no
+_delete a guest 
+_?_Update fee status of the guest(should automatically update DOP) --> DOP bug
+_Update date of leaving of the guest
+_?Update details of guest --> should work even when other fields were not given and also try room number rather than room ID
+_get guests details with fee status pending
+_?Assign a room to the guest --> should change status and vacancies of room. --> should be with room no not ID
+Add amount of fee paid and how much remaining pay.
+
+
+
+Owner :
+✅_Create a owner
+✅_View all owner's details based on pg
+✅_Update details of owner
+-> only one owner for pg --> room for improvement? but one owner can have more than one pg
+
+
+PG:
+✅_Create a pg
+✅_View all pg based on owner ID
+✅_Delete a pg
+✅_update pg details
+✅_update pg revenue
+✅_update pg wardenID
+--> Updation of owner Id? --> room for improvement?
+
+Room:
+✅_Create a room
+✅_Get rooms by pg
+✅_Get rooms by pg and floor
+✅_Get rooms by pg and room no
+_?_Get rooms with vacancies by pg, floor(optional if no floor selected should show every floor), Date(look for all guests DOL(date of leaving) for this, A room will be vacant on the DOL of the guest. IF DOL is NULL that means guest don't know when to go so don't show those), Beds (optional here beds means sharing how many no of people will the guest be sharing with, should show all sharings if no sharing option is choosen), and by Status(optional mostly people will be looking for Fully empty room if all friends want to be in same room or else if nothing is selected should show all the Partially and fully empty rooms)
+✅_Get cleaning status of the rooms based on pg and floor
+--> Date inconsistency?
+
+Worker:
+✅_Create new worker
+✅_get worker by pg
+✅_get worker by pg and job
+✅_Delete worker
+✅_Update sal_status of worker
+✅_Update details of worker
+
+
+Warden:
+✅_Create a new Warden
+✅_View all getWardens
+✅_Get warden details based on pg ID
+✅_Delete a warden
+✅_Update Warden details
+✅_Update sal_status of warden
+--> More than one warden for pg?
+
+
+
