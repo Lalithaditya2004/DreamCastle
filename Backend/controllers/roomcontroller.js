@@ -1,11 +1,11 @@
 const db = require("../models/db");
 
 exports.createRoom = async (req, res) => {
-  const { RoomNo, FloorNo, Beds, Vacancies, last_cleaned, Status, PGId } = req.body;
+  const { RoomNo, FloorNo, Beds, last_cleaned, Status, PGId } = req.body;
   try {
     await db.query(
       "INSERT INTO room (RoomNo, FloorNo, Beds, Vacancies, last_cleaned, Status, PGId) VALUES (?, ?, ?, ?, ?, ?, ?)",
-      [RoomNo, FloorNo, Beds, Vacancies, last_cleaned, Status, PGId]
+      [RoomNo, FloorNo, Beds, Beds, last_cleaned, Status, PGId]
     );
     res.status(201).json({ message: "Room added successfully" });
   } catch (err) {

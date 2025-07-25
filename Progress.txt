@@ -37,6 +37,7 @@ Room:
 _?_Get rooms with vacancies by pg, floor(optional if no floor selected should show every floor), Date(look for all guests DOL(date of leaving) for this, A room will be vacant on the DOL of the guest. IF DOL is NULL that means guest don't know when to go so don't show those), Beds (optional here beds means sharing how many no of people will the guest be sharing with, should show all sharings if no sharing option is choosen), and by Status(optional mostly people will be looking for Fully empty room if all friends want to be in same room or else if nothing is selected should show all the Partially and fully empty rooms)
 ✅_Get cleaning status of the rooms based on pg and floor
 --> Date inconsistency?
+--> vacancies inconsistency?
 
 Worker:
 ✅_Create new worker
