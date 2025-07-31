@@ -16,7 +16,7 @@ exports.getOwners = async (req, res) => {
     const [rows] = await db.query(
       `SELECT o.* 
        FROM owner o
-       JOIN pg p ON o.UserID = p.OwnerID
+       JOIN pg p ON o.UserId = p.OwnerID
        WHERE p.PGId = ?`,
       [pgId]
     );
@@ -32,7 +32,7 @@ exports.updateOwner = async (req, res) => {
   const { Name, Password, phone, email } = req.body;
   try {
     await db.query(
-      "UPDATE owner SET Name = ?, Password = ?, Phno = ?, Email = ? WHERE UserID = ?",
+      "UPDATE owner SET Name = ?, Password = ?, Phno = ?, Email = ? WHERE UserId = ?",
       [Name, Password, phone, email, userId]
     );
     res.json({ message: "Owner updated successfully" });
